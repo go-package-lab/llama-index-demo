@@ -7,7 +7,7 @@ print("Available models:", available_models())
 # Available models: ['ViT-B-16', 'ViT-L-14', 'ViT-L-14-336', 'ViT-H-14', 'RN50']
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
-model, preprocess = load_from_name("ViT-B-16", device=device, download_root='/workspace/ai-model/clip_cn/')
+model, preprocess = load_from_name("ViT-L-14", device=device, download_root='/workspace/ai-model/clip_cn/')
 model.eval()
 image = preprocess(Image.open("images/pokemon.jpeg")).unsqueeze(0).to(device)
 text = clip.tokenize(["杰尼龟", "妙蛙种子", "小火龙", "皮卡丘"]).to(device)
